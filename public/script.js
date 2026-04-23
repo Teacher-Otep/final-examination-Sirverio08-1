@@ -1,3 +1,4 @@
+
 //fucntion to show selected section
 function showSection(sectionID){
     //initially, select all sections

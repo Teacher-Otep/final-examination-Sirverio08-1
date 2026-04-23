@@ -56,8 +56,6 @@
     <section id="update" class="content"> Update Student Records </section>
     <section id="delete" class="content"> Remove Student Records </section>
 
-
-
     <script src="script.js"></script>
 </body>
 </html>

@@ -41,6 +41,7 @@
         <div id="btncontainer">
             <button type="button" id="clrbtn" class="btns">Clear Fields</button><br/>
             <button type="submit" id="savebtn" class="btns">Save</button>
+</form>
         </div>
 
         <div id="success-toast" class="toast-hidden">
@@ -57,5 +58,9 @@
     <section id="delete" class="content"> Remove Student Records </section>
 
     <script src="script.js"></script>
+    <section id="read" class="content">
+<h1 class="contenttitle">View Students</h1></p>
+
+</section>
 </body>
 </html>

@@ -1,25 +1,12 @@
 <?php
-$host = '127.0.0.1'; 
-$db   = 'dbstudents';  //sukatan yo dytoy jay nagan ti database yo
-$user = 'root';        //
-$pass = '';            //
-$port = '5500';        //nu nagusar kayo sabali nga port sukatan yo metlang dytoy
-$charset = 'utf8mb4';
+$host = '127.0.0.1';
+$db   = 'dbstudents';
+$user = 'Sirverio_Database';
+$pass = 'sirverio08';
+$port = 5500; // port as integer
 
-
-$dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
-
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
-
-try {
-     $pdo = new PDO($dsn, $user, $pass, $options);
-
-} catch (\PDOException $e) {
-
-     die("Connection failed: " . $e->getMessage());
+$conn = new mysqli($host, $user, $pass, $db, $port);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>

@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "../../VerioFiles/WEB_Project/VS code Project"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "VS code Project",
+		"liveServer.settings.port": 3309
+	}
+}

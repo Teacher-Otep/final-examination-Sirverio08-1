@@ -1,164 +1,356 @@
 
 /* Body styles for better layout */
+
 body {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* changed to top for better flow */
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    width: 97vw;
-    min-height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    
+
+display: flex;
+
+justify-content: center;
+
+align-items: flex-start; 
+
+flex-direction: column;
+
+background-color: rgb(255, 255, 255);
+
+width: 97vw;
+
+min-height: 100vh;
+
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+margin: 0;
+
+
 }
+
+
 
 /* Navbar styles */
+
 .navbar {
-    position: fixed; /* make navbar stay fixed at the top */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 10vh; /* or set a fixed height like 60px */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: rgb(158, 241, 102);
-    border-radius: 45px;
-    padding: 0 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    z-index: 1000; /* ensure it's above other content */
+
+position: fixed; 
+
+top: 0;
+
+left: 0;
+
+width: 100%;
+
+height: 10vh; /* or set a fixed height like 60px */
+
+display: flex;
+
+justify-content: space-around;
+
+align-items: center;
+
+background-color: rgb(158, 241, 102);
+
+border-radius: 45px;
+
+padding: 0 20px;
+
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+z-index: 1000; /* ensure it's above other content */
+
 }
+
+
 
 #logo {
-    width: 50px;
-    height: auto;
-    filter: invert(30%) sepia(100%) saturate(500%) hue-rotate(200deg);
+
+width: 50px;
+
+height: auto;
+
+filter: invert(30%) sepia(100%) saturate(500%) hue-rotate(200deg);
+
 }
+
+
 
 .navbarbuttons {
-    background-color: rgba(1, 116, 116, 0.3);
-    border: none;
-    width: 120px;
-    height: 40px;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+
+background-color: rgba(1, 116, 116, 0.3);
+
+border: none;
+
+width: 120px;
+
+height: 40px;
+
+border-radius: 25px;
+
+font-size: 16px;
+
+cursor: pointer;
+
+transition: background-color 0.3s, transform 0.2s;
+
 }
+
+
 
 .navbarbuttons:hover {
-    background-color: rgba(1, 116, 116, 0.5);
-    transform: scale(1.05);
+
+background-color: rgba(1, 116, 116, 0.5);
+
+transform: scale(1.05);
+
 }
 
+
+
 /* Content sections */
+
 .content, .homecontent {
-    display: none; 
+
+display: none;
+
+flex-direction: column;
+
+align-items: center;
+
+width: 100%;
+
+box-sizing: border-box;
+
+}
+
+.homecontent {
+
+padding-top: 60px;
+
+display: flex;
+
+flex-direction: column; 
+
+align-items: center;  
+
+justify-content: center;  
+
+text-align: center;  
+
+height: 100vh;  
+
+}
+
+.contenttitle {
+
+font-size: 2em;  
+
+margin-bottom: 20px;
+
+text-align: center;
+
+}
+
+
+
+.contenttitle, .label, .btns, .splash {
+
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+color: rgb(102, 176, 241);
+
+}
+
+
+
+/* Splash styles */
+
+.splash {
+
+font-style: italic;
+
+font-size: 1.2em;
+
+margin: 10px 0;
+
+}
+
+
+
+/* Labels and fields */
+
+.label {
+
+display: inline-block;
+
+width: 150px;
+
+font-weight: bold;
+
+margin-top: 10px;
+
+}
+
+
+
+.field {
+
+display: inline-block;
+
+width: 250px;
+
+padding: 8px;
+
+margin-top: 10px;
+
+border: 1px solid #ccc;
+
+border-radius: 8px;
+
+box-sizing: border-box;
+
+font-size: 1em;
+
+}
+
+
+
+/* Buttons */
+
+.btns {
+
+width: 150px;
+
+padding: 10px;
+
+margin-top: 10px;
+
+background-color: rgb(4, 57, 104);
+
+color: white;
+
+border: none;
+
+border-radius: 25px;
+
+font-size: 1em;
+
+cursor: pointer;
+
+transition: background-color 0.3s, transform 0.2s;
+
+}
+
+
+
+.btns:hover {
+
+background-color: rgb(2, 45, 80);
+
+transform: scale(1.05);
+
+}
+
+
+
+/* Button container */
+
+#btncontainer {
+
+display: flex;
+
+justify-content: space-evenly;
+
+gap: 20px;
+
+margin-top: 20px;
+
+
+
+}
+
+
+
+/* Toast notification styles */
+
+#success-toast {
+
+position: fixed;
+
+top: 20px;
+
+right: 20px;
+
+background-color: #4CAF50;
+
+color: white;
+
+padding: 16px 24px;
+
+border-radius: 8px;
+
+box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+opacity: 0;
+
+transition: opacity 0.5s ease-in-out;
+
+z-index: 1000;
+
+}
+
+
+
+.toast-show {
+
+opacity: 1;
+
+}
+
+
+
+.toast-hidden {
+
+display: none;
+
+opacity: 0;
+
+}
+
+
+
+.hidden {
+
+display: none;
+
+}
+
+
+.main-form {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    box-sizing: border-box;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
-.homecontent {
-    padding-top: 60px;
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center;    /* Center horizontally */
-    justify-content: center; /* Center vertically, optional */
-    text-align: center;      /* Center text inside headings */
-    height: 100vh;           /* Make section full viewport height */
+
+/* Table Styling for Read Section */
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background: white;
 }
-.contenttitle {
-    font-size: 2em; /* larger title */
-    margin-bottom: 20px;
+
+th {
+    background-color: rgb(102, 176, 241);
+    color: white;
+    padding: 12px;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
     text-align: center;
 }
 
-.contenttitle, .label, .btns, .splash {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgb(102, 176, 241);
-}
-
-/* Splash styles */
-.splash {
-    font-style: italic;
-    font-size: 1.2em;
-    margin: 10px 0;
-}
-
-/* Labels and fields */
-.label {
-    display: inline-block;
-    width: 150px;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.field {
-    display: inline-block;
-    width: 250px;
-    padding: 8px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-size: 1em;
-}
-
-/* Buttons */
-.btns {
-    width: 150px;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: rgb(4, 57, 104);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.btns:hover {
-    background-color: rgb(2, 45, 80);
-    transform: scale(1.05);
-}
-
-/* Button container */
-#btncontainer {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 20px;
-    margin-top: 20px;
-
-}
-
-/* Toast notification styles */
-#success-toast {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px 24px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    z-index: 1000;
-}
-
-.toast-show {
-    opacity: 1;
-}
-
-.toast-hidden {
-    display: none;
-    opacity: 0;
-}
-
-.hidden {
-    display: none;
-}
-
+tr:nth-child(even) { background-color: #f2f2f2; }

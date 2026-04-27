@@ -1,50 +1,37 @@
-// Show and hide sections based on button clicks
+// Req 4: UX Section Switching
 function showSection(sectionID) {
-    const sections = document.querySelectorAll('.content, .homecontent');
-    sections.forEach(section => {
-        section.style.display = 'none';
+    // Hide everything first
+    const allSections = document.querySelectorAll('.content, .homecontent');
+    allSections.forEach(sec => {
+        sec.style.display = 'none';
     });
 
-    const targetSection = document.getElementById(sectionID);
-    if (targetSection) {
-        targetSection.style.display = 'flex'; // or 'block' if preferred
+    // Show only the target
+    const target = document.getElementById(sectionID);
+    if (target) {
+        target.style.display = 'flex';
     }
 }
 
-// Add event listener to logo to hide all sections when clicked
 document.addEventListener('DOMContentLoaded', () => {
+    // Req 2a: Logo Event
     const logo = document.getElementById('logo');
-    if (logo) {
-        logo.style.cursor = 'pointer';
-        logo.addEventListener('click', () => {
-            // Select all sections to hide
-            const sectionsToHide = document.querySelectorAll('.content');
-            sectionsToHide.forEach(section => {
-                section.style.display = 'none';
-            });
-            // Keep .contenttitle and .homecontent visible
-            const title = document.querySelector('.contenttitle');
-            if (title) {
-                title.style.display = 'block';
-            }
-            const homeContent = document.querySelector('.homecontent');
-            if (homeContent) {
-                homeContent.style.display = 'block';
-            }
-        });
-    }
+    logo.style.cursor = 'pointer';
+    logo.addEventListener('click', () => {
+        const contents = document.querySelectorAll('.content');
+        contents.forEach(c => c.style.display = 'none');
+        document.getElementById('home').style.display = 'flex';
+    });
 
-    // Existing code for toast notification
+    // Toast logic
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('status') === 'success') {
         const toast = document.getElementById('success-toast');
         toast.classList.remove('toast-hidden');
-
+        toast.classList.add('toast-show');
         setTimeout(() => {
-            toast.style.opacity = '0';
+            toast.classList.remove('toast-show');
             setTimeout(() => toast.classList.add('toast-hidden'), 500);
         }, 3000);
-
-        window.history.replaceState({}, document.title, window.location.pathname);
     }
 });

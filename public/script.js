@@ -1,5 +1,7 @@
+
 // Req 4: UX Section Switching
 function showSection(sectionID) {
+    console.log('Switching to section:', sectionID);
     // Hide everything first
     const allSections = document.querySelectorAll('.content, .homecontent');
     allSections.forEach(sec => {
@@ -10,6 +12,9 @@ function showSection(sectionID) {
     const target = document.getElementById(sectionID);
     if (target) {
         target.style.display = 'flex';
+        console.log('Displayed section:', sectionID);
+    } else {
+        console.log('Section not found:', sectionID);
     }
 }
 

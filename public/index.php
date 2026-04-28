@@ -1,4 +1,5 @@
-<include('../includes/db.php');
+<?php include('../includes/db.php'); ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -118,5 +119,31 @@
 
     <div id="success-toast" class="toast-hidden">Action Successful!</div>
     <script src="script.js"></script>
+
+    <section id="create" class="content" style="display:none;">
+    <h1 class="contenttitle">Insert New Student</h1>
+    
+    <form action="includes/insert.php" method="POST" class="main-form">
+        <label class="label">Surname</label>
+        <input type="text" name="surname" class="field" required />
+        
+        <label class="label">Name</label>
+        <input type="text" name="name" class="field" required />
+        
+        <label class="label">Middle name</label>
+        <input type="text" name="middlename" class="field" />
+        
+        <label class="label">Address</label>
+        <input type="text" name="address" class="field" />
+        
+        <label class="label">Mobile Number</label>
+        <input type="text" name="contact" class="field" />
+
+        <div id="btncontainer">
+            <button type="reset" id="clrbtn" class="btns">Clear Fields</button>
+            <button type="submit" name="submit_student" id="savebtn" class="btns">Save</button>
+        </div>
+    </form>
+</section>
 </body>
 </html>

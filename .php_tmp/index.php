@@ -1,4 +1,4 @@
-<?php include __DIR__ . "includes/db.php"; ?>
+<?php include  "includes/db.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">

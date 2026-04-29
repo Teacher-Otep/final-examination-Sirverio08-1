@@ -18,19 +18,25 @@ if ($stmt === false) {
     die('Prepare failed: ' . $conn->error);
 }
 
-// Bind parameters: "ssssss" means 6 strings. 
-// (Even if an ID is a number, sending it as a string is completely safe in SQL)
+// Bind parameters: "ssssss" means 6 strings.
 $stmt->bind_param("ssssss", $id, $surname, $name, $middlename, $address, $contact);
-
 // Execute the statement
 if ($stmt->execute()) {
-    // Redirect back to your main page with a success message
-    header("Location: index.php?status=success");
+    // If successful, redirect to index.php with a success message
+    header("Location: ../../public/index.php?status=success");
     exit();
 } else {
-    // Handle errors if needed
-    die("Error: " . $stmt->error);
+    // If execution failed, check if the error is a duplicate entry
+    if ($conn->errno === 1062) { // 1062 is MySQL's error code for duplicate entry
+        // Redirect to index.php with a duplicate error message
+        header("Location: ../../public/index.php?error=duplicate");
+        exit();
+    } else {
+        // For other errors, display the error message
+        die("Error: " . $stmt->error);
+    }
 }
+
 $stmt->close();
 $conn->close();
 ?>

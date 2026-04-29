@@ -48,10 +48,12 @@
         <div id="btncontainer">
             <button type="button" id="clrbtn" class="btns">Clear Fields</button><br/>
             <button type="submit" id="savebtn" class="btns">Save</button>
+            
         </div>
 
         <div id="success-toast" class="toast-hidden">
             Registration Successful!
+            
         </div>
     </form>   
 

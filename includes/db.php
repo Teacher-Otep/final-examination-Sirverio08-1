@@ -2,8 +2,9 @@
 
 $host = "localhost";
 $user = "root";   // default user in XAMPP
-$pass = "sirverio08";       // leave empty unless you set a password
+$pass = "";       // leave empty unless you set a password
 $dbname = "dbstudents";
+
 
 $conn = new mysqli($host, $user, $pass, $dbname);
 

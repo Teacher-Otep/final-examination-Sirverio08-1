@@ -1,43 +1,36 @@
 <?php
-// 1. Connect to the database
-// Note: using './db.php' because insert.php is in the same folder as db.php
-require_once './db.php';
+// include database connection
+include('../includes/db.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_student'])) {
-    
-    // 2. Capture and sanitize form data
-    $surname = $_POST['surname'];
-    $name = $_POST['name'];
-    $middlename = $_POST['middlename'];
-    $address = $_POST['address'];
-    $contact = $_POST['contact'];
+// Retrieve form data
+$id = $_POST['id'];
+$surname = $_POST['surname'];
+$name = $_POST['name'];
+$middlename = $_POST['middlename'];
+$address = $_POST['address'];
+$contact = $_POST['contact'];
 
-    try {
-        // 3. Prepare the SQL Statement
-        $sql = "INSERT INTO students (surname, name, middlename, address, contact_number) 
-                VALUES (:surname, :name, :middlename, :address, :contact)";
-        
-        $stmt = $pdo->prepare($sql);
+// Prepare and bind statement to prevent SQL injection
+$stmt = $conn->prepare("INSERT INTO students (id, surname, name, middlename, address, contact_number) VALUES (?, ?, ?, ?, ?, ?)");
 
-        // 4. Execute the query
-        $stmt->execute([
-            ':surname'    => $surname,
-            ':name'       => $name,
-            ':middlename' => $middlename,
-            ':address'    => $address,
-            ':contact'    => $contact
-        ]);
-
-        // 5. Redirect back to index.php with a success status
-        header("Location: ../index.php?status=success");
-        exit();
-
-    } catch (PDOException $e) {
-        // Handle errors (e.g., database connection issues)
-        die("Error: Could not insert record. " . $e->getMessage());
-    }
-} else {
-    // If someone tries to access this file directly, send them home
-    header("Location: ../index.php");
-    exit();
+// Check if preparation was successful
+if ($stmt === false) {
+    die('Prepare failed: ' . $conn->error);
 }
+
+// Bind parameters: "ssssss" means 6 strings. 
+// (Even if an ID is a number, sending it as a string is completely safe in SQL)
+$stmt->bind_param("ssssss", $id, $surname, $name, $middlename, $address, $contact);
+
+// Execute the statement
+if ($stmt->execute()) {
+    // Redirect back to your main page with a success message
+    header("Location: index.php?status=success");
+    exit();
+} else {
+    // Handle errors if needed
+    die("Error: " . $stmt->error);
+}
+$stmt->close();
+$conn->close();
+?>

@@ -1,25 +1,3 @@
-// Full JavaScript code
-window.onload = function() {
-    showSection('home'); // Show home content on initial load
-    
-    // Show success toast if URL has status=success
-    const toast = document.getElementById('success-toast');
-    if (toast) {
-        if (window.location.search.includes('status=success')) {
-            toast.classList.remove('toast-hidden');
-            setTimeout(() => {
-                toast.style.opacity = '0';
-                setTimeout(() => toast.classList.add('toast-hidden'), 500);
-            }, 3000);
-        }
-    }
-
-    // Add click event to logo to show home
-    const logo = document.getElementById('logo');
-    logo.addEventListener('click', () => {
-        showSection('home');
-    });
-};
 
 // Function to show one section and hide others
 function showSection(sectionID) {

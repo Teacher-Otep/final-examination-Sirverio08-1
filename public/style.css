@@ -119,6 +119,7 @@ body {
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .btns:hover {
@@ -126,6 +127,7 @@ body {
     box-shadow: 0 0 15px #00ffff;
     transform: scale(1.05);
 }
+
 #success-toast {
     position: fixed;
     top: 20px;

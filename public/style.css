@@ -126,8 +126,6 @@ body {
     box-shadow: 0 0 15px #00ffff;
     transform: scale(1.05);
 }
-
-/* Toast notification for success */
 #success-toast {
     position: fixed;
     top: 20px;
@@ -140,27 +138,39 @@ body {
     font-family: 'Orbitron', sans-serif;
     font-weight: bold;
     transition: opacity 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     z-index: 1000;
 }
 
+/* Show/hide toast */
 .toast-hidden {
     display: none;
     opacity: 0;
 }
 
-
-/* Show the toast when the class is added */
 .toast-visible {
-    display: block; /* or flex, depending on your styling */
+    display: flex;
     opacity: 1;
-    
-    /* Example styling for a nice popup effect */
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    border-radius: 5px;
-    transition: opacity 0.5s ease-in-out;
+}
+
+/* Style for Home button inside toast */
+#homeBtn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #00ffff;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#homeBtn:hover {
+    background-color: #00ffff;
+    color: #fff;
+    box-shadow: 0 0 10px #00ffff;
 }
